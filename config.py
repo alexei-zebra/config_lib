@@ -1,7 +1,9 @@
 # config lib v1.0  by zebra
 class Config:
-    def __init__(self) -> None:
+    def __init__(self, name = None, path = None) -> None:
         self._configs = {}
+        if name:
+            self.new_config(name=name, path=path)
     def new_config(self, name :str, path = None):
         path = path if path else f"config/{name}.cfg"
         with open(path,'r') as file:
